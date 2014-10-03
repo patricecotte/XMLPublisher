@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"
+>
+<!-- ====================================================================== -->
+<!-- test.xml - a basic model  processing                                   -->
+<!-- ====================================================================== -->
+<book>
+  <title id="BookModel" lang="en" os="Windows 8" vendor="Patrice Cotte"> 
+  Turn your Eclipse IDE into an easy-to-use publishing environment
+  </title>
+
+  <subtitle>This XML source contains a number of basic examples .</subtitle>
+
+  <preface>
+    <title>Preface: Create your own publishing environment</title>
+    
+    <para>IT professionals commonly write many documents and technical presentations.
+    Still these documents are limited to the Microsoft formats or PDF that are quickly read and put on the side. 
+    </para>
+    
+  </preface> 
+  
+  <chapter>
+     <title id="chapter01" lang="en" pagenum="1">The capabilities of Eclipse </title>
+     <!-- placeholder for the Eclipse splash screen -->
+     <mediaobject>
+          <imageobject>
+ 			<objectinfo>
+ 				<graphic align="center"/>
+ 			</objectinfo>
+ 			<imagedata fileref="../common/images/Eclipse Kepler splash screen.png" depth="400" width="600" valign="top" align="center"/>
+          </imageobject>
+          <caption>The Eclipse splash screen</caption>
+     </mediaobject>
+
+    <para>We can use these features of Eclipse to turn the IDE into a publishing environment:  
+  		<itemizedlist>
+  					<listitem><para>An XML perspective</para></listitem>
+  					<listitem><para>XML, XSL or DTD editors</para></listitem>
+  					<listitem><para>The ANT tool</para></listitem>				
+  		</itemizedlist>
+    </para>
+
+     
+
+    <section>
+      <title> The XML Perspective</title>
+	  <para> The XML perspective is an environment for creating and managing projects that contain XML, XSL, DTD documents. 
+	  As a publisher you will create your documents in an XML project. Your XML project will contain the XML pages, external items 
+	  such as images, the Docbook XML and XSL definitions and the tools that generate the documents from your XML sources.  
+	  </para>
+	  
+	</section>
+	 
+	<!-- No page break is inserted ahead of a section. A page break can be forced as shown below
+	provided the hard-pagebreak template has been inserted in fo's docbook.xsl -->
+	<?hard-pagebreak?>
+    <section>
+        <title>XML, XSL, DTD editors.</title>
+
+        <para>XML, XSL and DTD sources are structured in tags and data.</para>
+        
+        <para>Sources in an XML project can be edited in a dedicated editor that helps the user to enter valid input. 
+        <itemizedlist>
+        <listitem><para>These  editors color differently the tags and the data for an easier reading.</para></listitem>
+        <listitem><para>They also dynamically generate the end tag for any tag user has typed in.</para></listitem>
+        </itemizedlist>
+        </para>
+       </section>
+        
+  </chapter>
+
+
+  <chapter>
+  		<title id="chapter3" lang="en" pagenum="3">The transformers </title>
+  
+  		<para>Docbook helps to write a structured source document but the final documents need to be generated using a number of third-party tools. 
+  		They are called 'Transformers'. Depending on the format of the desired output the action of one or several transformers may be required.
+  		</para>
+  		
+  		<para>In this setup we'll use the following:
+  		<itemizedlist>
+  			<listitem><para><emphasis>ePub format</emphasis></para> 
+  				<itemizedlist>
+  					<listitem><para>The Xalan transformer</para></listitem>
+  					<listitem><para>The Saxon transformer</para></listitem>
+  					<listitem><para>Google's verification tool</para></listitem>
+  				</itemizedlist>
+  			</listitem>
+  			<listitem><para><emphasis>PDF format</emphasis></para>
+  				<itemizedlist>
+  					<listitem><para>The Xalan transformer</para></listitem>
+  					<listitem><para>The FOP transformer</para></listitem>
+  				</itemizedlist>
+  			</listitem>
+  			<listitem><para><emphasis>Webhelp format</emphasis></para>
+  				<itemizedlist>
+  					<listitem><para>The Xalan transformer</para></listitem>
+  					<listitem><para>The Nexwave indexer</para></listitem>
+  				</itemizedlist>
+  			</listitem>
+  		</itemizedlist> 		
+  		</para>
+  </chapter>
+  
+   <chapter>
+  		<title id="chapter4" lang="en" pagenum="3">Create a publishing environment </title>
+  		<para>In Eclipse an XML publishing environment can be created by adding to an XML project the capability to build outputs 
+  		in different formats. This is achieved by installing right in the XML project a number of additional open source elements that can be 
+  		easily found on the internet.</para>
+  		<para>The build tools can be further customized so produce documents with a unique appearance consistent across the different formats</para>
+
+  		
+  		<section><title>Notes about the buildSimpleBook script</title>
+  		<para>
+  		<!-- for alignment purpose make sure each line starts after the same number of tabs -->
+  		<itemizedlist><para>The structure of the script is:</para>
+  			<listitem><para>A simple XML header
+  			 	<programlisting><![CDATA[
+  		  	<?xml version="1.0"?>
+  		     		   ]]>
+    			</programlisting>
+    			</para></listitem>
+  			<listitem><para>A project, which contains:
+  			<orderedlist> 
+  				<listitem><para>A description that tells what the script does
+  					<programlisting><![CDATA[
+  		   	<description>
+            This Ant build.xml file is used to transform DocBook XML  		
+    		1. xml to epub					epubinput 	-> output/epub
+    		2. xml to fo to PDF				input 		-> ouput/pdf
+    		3. xml to webhelp				input		-> output/webhelp
+    		</description>
+  		     		   ]]>
+    				</programlisting>
+  				</para></listitem>
+  				<listitem><para>A number of properties that set variables with the input, output and utilities locations
+  				  	<programlisting><![CDATA[
+  		    <!-- inputs -->
+			<property name="book" value="SimpleBook"/>
+	
+			<property name="epubinput.dir" value="epubinput"/>
+			<property name="epubimg.dir" value="${epubinput.dir}/images"/>
+			<property name="epubinput" value="${book}"/>
+			etc ...
+	
+  		     		   ]]>
+    				</programlisting>
+  				</para></listitem>
+  			</orderedlist></para></listitem>
+  		</itemizedlist>
+  		</para>
+ 	</section>
+  </chapter>
+  
+  <chapter>
+  		<title id="chapter5" lang="en" pagenum="3">Customize your environment </title>	
+  		<para>Example of an internal <link linkend="adobe">link</link>. 
+		</para>
+		<para>Example of an external link. 
+		DocbBook: The Definitive Guide by Norman Walsh and Leonard Muellner
+      		<ulink url="http://docbook.org/tdg/en/html/docbook.html">http://docbook.org/tdg/en/html/docbook.html</ulink>
+		</para>	  		
+  </chapter>
+  
+  <chapter>
+  	<title id="chapter6" lang="en" pagenum="3">Customize your environment </title>	
+  	<para id="adobe">This paragraph is the destination of the internal link in chapter 5.</para>
+  </chapter>
+</book>

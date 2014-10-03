@@ -1,0 +1,164 @@
+body { font: 12px Rockwell, Verdana, Geneva, sans-serif; } /* Added Rockwell */
+p, ul, ol, li { font: 10pt Verdana, Geneva, sans-serif; }
+h1 { font: bold 15pt Arial, Helvetica, geneva; }
+h2 { font: 14pt Arial, Helvetica, geneva; }					/* Removed bold */
+
+#header {
+/* Suppressed the hideous background image */
+/* background: white url(../images/header-bg.gif) repeat-x; */
+	background: grey;
+	position: fixed;
+	width: 100%;
+	height: 65px; /* was 95 */
+	top: 0;
+	right: 0;
+	bottom: auto;
+	left: 0;
+/* Change the color of the header bottom border */
+/*border-bottom: 2px solid #cccccc; light grey*/
+	border-bottom: 10px solid green;
+	z-index: 2000;
+}
+
+#headertable{
+	width: 100%;
+	border: 1px solid green;
+}
+
+#leftnavigation {
+/* background-color:#91e7b3; light green */
+/* changed top from 90 to 70 */
+	overflow: auto;
+	position: fixed;
+	height: auto;
+	top: 70px;
+	bottom: 0;
+	left: 0;
+	width: 280px;
+	z-index: 1500;
+/* Change the color and width of the vertical bar to the right
+	of the search pane */
+/* border-right:2px solid #CCCCCC; */
+	border-right: 3px solid green;
+}
+
+#content {
+	position: relative;
+	top: 90px; /* left: 240px;*/
+	right: auto; /* bottom: 20px; */
+/* top=bottom=right=0 left=start at position 280 in screen*/
+/* same as width in #leftnavigation */
+	margin: 0px 0px 0px 280px;
+	width: auto;
+	height: inherit;
+	padding-left: 5px;
+	padding-right: 30px;
+	color: #000000;
+/*border-left: 2px solid #cccccc; overflow :scroll;*/
+	z-index: 1000;
+	max-width: 70em;
+	in-width:800px;
+}
+
+#navheader {
+	text-align: right;
+	position: fixed;
+	top: 20px; /* was 45 */
+	right:4px;
+	img-style: 3px solid green; /* adds frame around the icons */
+}
+
+/* colors - #cc0000 = red; #c5d3c3 = light grey
+	changed h1 and h2 colors from cc0000 to black */
+#content h1, #content h2 { color: black; }
+.navfooter { bottom: 2%; }
+.highlight { background-color: #c5d3c3; }
+.highlightButton{ font-size: 0; }
+
+/*  Show Hide TOC tree */
+.pointLeft {
+    background: url("../images/showHideTreeIcons.png") 0 0 no-repeat;
+    height: 28px;
+    width: 15px;
+    display: block;
+    font-size: 0;
+    cursor: pointer;
+}
+.pointRight {
+    background: url("../images/showHideTreeIcons.png") -15px 0 no-repeat;
+    height: 28px;
+    display: block;
+    font-size: 0;
+    cursor: pointer;
+}/* Show Hide TOC tree */
+/* Note, the original image contains the two '<>' buttons */
+/* Replace the ugly <> icon by the magnifying glass + green frame and margin */
+.pointLeft {
+/*background: url("../images/showHideTreeIcons.png") 0 0 no-repeat;*/
+	background: url("../images/Magnifying glass_48.png") 0 0 no-repeat;
+	height: 28px;
+	width: 28px;
+	display: block;
+	font-size: 0;
+	cursor: pointer;
+	margin: 3px 3px 3px 3px;
+	border: 2px solid green;
+}
+.pointRight {
+/* background: url("../images/showHideTreeIcons.png") -15px 0 no-repeat; */
+	background: url("../images/Magnifying glass_48.png") 0 0 no-repeat;
+	height: 28px;
+	width: 28px;
+	display: block;
+	font-size: 0;
+	cursor: pointer;
+	margin: 3px 3px 3px 3px;
+	border: 2px solid green;
+}
+
+/* Search results Styling
+	Colors: #0050A0 is middle blue
+	EBEFF8 is light grey
+	#BFCEE9 is light blue -> #B8DB4D light green
+	For consistency match with colors in main.js, function syncToc()
+*/
+.searchExpression {
+	color: #0050A0;
+	background-color: #EBEFF8;
+	font-size: 12pt;
+}
+.searchresult li a {
+	text-decoration: none;
+	color: #0050A0;
+}
+.searchresult li {
+	color: #0050A0;
+}
+.shortdesclink {
+	color: gray;
+	font-size: 9pt;
+}
+.searchText {
+/*border: #BFCEE9 solid 1pt;*/
+	border: #B8DB4D solid 1pt;
+	width: 11em
+}
+.searchButton {
+	margin-left: 3px;
+	ackground: #EBEFF8;
+	color: #0050A0;
+/* border: #BFCEE9 solid 1pt; */
+	border: #B8DB4D solid 1pt;
+	font-weight: bold;
+	font-size: 10pt
+}
+
+.title, div.toc>p{
+	font-weight: normal; /* was bold */
+	ont-size: 18pt /* was 10 */
+}
+
+.navicon {
+margin: 3px 3px 3px 3px;
+border: 2px solid green;
+}
