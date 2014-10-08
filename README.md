@@ -6,7 +6,7 @@ The XMLPublisher project contains the examples referenced in the MyDocbook book 
 MyDocbook explains how create in an Eclipse IDE an XML project and implement in that project the tools that can generate 
 epub and pdf books as well as web pages from XML Docbook documents. 
 
-If imported into Eclipse as an XML project the XMLPublisher will be structured as outlined below. 
+If imported into Eclipse as an XML project the XMLPublisher will be structured as outlined below (please view in Raw mode) 
 
 
 
